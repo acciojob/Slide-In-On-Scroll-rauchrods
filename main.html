@@ -58,6 +58,22 @@
       };
     }
 
+	     var observer = new IntersectionObserver((entries)=>{
+     entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('active');
+        }
+        else{
+            entry.target.classList.remove('active');
+        }
+     })
+    });
+
+    var images = document.querySelectorAll(".slide-in");
+    images.forEach((image)=>{
+        observer.observe(image);
+    })
+
   </script>
 
   <style>
